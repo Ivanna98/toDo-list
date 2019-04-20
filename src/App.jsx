@@ -1,4 +1,4 @@
-import {List} from './component/List';
+import {List} from './components/List';
 import React from 'react';
 
 export default class App extends React.Component {
@@ -14,11 +14,12 @@ export default class App extends React.Component {
         this.setState({term: event.target.value});
     }
 
+
     onSubmit = (event) => {
         event.preventDefault();
         this.setState({
             term: '',
-            items: [...this.state.items, this.state.term]
+            items: [...this.state.items, { text: this.state.term, id: new Date().getTime()} ]
         });
     }
 
