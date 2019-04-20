@@ -13,7 +13,13 @@ export default class App extends React.Component {
     onChange = (event) => {
         this.setState({term: event.target.value});
     }
-
+    
+    onRemove = (id) => {
+       this.setState({
+           term: '',
+           items: this.items.filter(items => items.id !== id)
+       })
+    }
 
     onSubmit = (event) => {
         event.preventDefault();
