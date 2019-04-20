@@ -17,7 +17,7 @@ export default class App extends React.Component {
     onRemove = (id) => {
        this.setState({
            term: '',
-           items: this.items.filter(items => items.id !== id)
+           items: this.state.items.filter(items => items.id !== id)
        })
     }
 
@@ -36,7 +36,7 @@ export default class App extends React.Component {
                    <input value={this.state.term} onChange={this.onChange} />
                    <button>Submit</button>
                 </form>
-                <List items={this.state.items} />
+                <List items={this.state.items} onRemove={this.onRemove}/>
             </div>
         );
     }
